@@ -39,7 +39,16 @@ for (let i = 0; i < slides.length; i++) {
     if (i === 0) {
         dot.classList.add("dot_selected");
     }
-	
+
     dotsContainer.appendChild(dot);
     dots.push(dot);
 }
+
+// Index de la diapositive actuellement affichée
+let currentSlide = 0;
+
+// Sélection de l'image et du texte du carrousel
+const bannerImg = document.querySelector(".banner-img");
+const bannerText = document.querySelector("#banner p");
+bannerImg.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+bannerText.innerHTML = slides[currentSlide].tagLine;
