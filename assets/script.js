@@ -59,13 +59,24 @@ function updateSlide() {
     dots[currentSlide].classList.add("dot_selected");
 }
 
-// 6. Navigation avec les flèches
+// Navigation vers la droite
 arrowRight.addEventListener("click", function() {
-    currentSlide++;
+    if (currentSlide === slides.length - 1) {
+        currentSlide = 0;
+    } else {
+        currentSlide++;
+    }
+
     updateSlide();
 });
 
+// Navigation vers la gauche
 arrowLeft.addEventListener("click", function() {
-    currentSlide--;
+    if (currentSlide === 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide--;
+    }
+
     updateSlide();
 });
