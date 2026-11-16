@@ -29,3 +29,11 @@ arrowLeft.addEventListener("click", function() {
 arrowRight.addEventListener("click", function() {
     console.log("Clic sur la flèche droite");
 });
+
+const dotsContainer = document.querySelector(".dots");
+const dots = [];
+for (let i = 0; i < slides.length; i++) {
+    const dot = document.createElement("div");
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+}
