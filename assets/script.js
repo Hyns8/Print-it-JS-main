@@ -21,13 +21,16 @@ const slides = [
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 
-// Écoute du clic sur les flèches
-arrowLeft.addEventListener("click", function() {
-    console.log("Clic sur la flèche gauche");
+// Navigation vers la diapositive suivante
+arrowRight.addEventListener("click", function() {
+    currentSlide++;
+    updateSlide();
 });
 
-arrowRight.addEventListener("click", function() {
-    console.log("Clic sur la flèche droite");
+// Navigation vers la diapositive précédente
+arrowLeft.addEventListener("click", function() {
+    currentSlide--;
+    updateSlide();
 });
 
 const dotsContainer = document.querySelector(".dots");
@@ -52,3 +55,19 @@ const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 bannerImg.src = "./assets/images/slideshow/" + slides[currentSlide].image;
 bannerText.innerHTML = slides[currentSlide].tagLine;
+
+function updateSlide() {
+
+    // Changer l'image
+    bannerImg.src = "./assets/images/slideshow/" + slides[currentSlide].image;
+
+    // Changer le texte
+    bannerText.innerHTML = slides[currentSlide].tagLine;
+
+    // Actualiser le bullet point actif
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("dot_selected");
+    }
+
+    dots[currentSlide].classList.add("dot_selected");
+}
